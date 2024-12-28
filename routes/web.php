@@ -30,4 +30,7 @@ Route::prefix('/attendee')->group(function () {
     Route::get('/', [\App\Http\Controllers\AttendeeController::class, 'index'])->name('attendee.index');
     Route::get('/create', [\App\Http\Controllers\AttendeeController::class, 'create'])->name('attendee.create');
     Route::post('/', [\App\Http\Controllers\AttendeeController::class, 'store'])->name('attendee.store');
+    Route::get('{attendee}/edit', [\App\Http\Controllers\AttendeeController::class, 'edit'])->name('attendee.edit');
+    Route::put('{attendee}', [\App\Http\Controllers\AttendeeController::class, 'update'])->name('attendee.update');
+    Route::delete('{attendee}', [\App\Http\Controllers\AttendeeController::class, 'destroy'])->name('attendee.destroy');
 });
