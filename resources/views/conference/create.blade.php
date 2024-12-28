@@ -11,11 +11,6 @@
                 <section class="bg-white">
 
                     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                        @if (session('success'))
-                            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
-                                <span class="font-medium">Success!</span> {{ session('success') }}
-                            </div>
-                        @endif
                         <h2 class="mb-4 text-xl font-bold text-gray-900 ">Add a new conference</h2>
                         <form action="{{ route('conference.store') }}" method="POST">
                             @csrf

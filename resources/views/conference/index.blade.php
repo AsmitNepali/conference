@@ -15,8 +15,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (session('success'))
+                <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
+                    <span class="font-medium">Success!</span> {{ session('success') }}
+                </div>
+            @endif
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
@@ -47,45 +54,46 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($conferences as $conference)
-                                <tr class="bg-white border-b hover:bg-gray-50 ">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                       {{ $conference->title }}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{ $conference->venue }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $conference->speaker_name }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $conference->speaker_email }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $conference->start_at }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $conference->end_at }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        ${{ $conference->ticket_cost }}
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a href="{{route('conference.edit', $conference->id)}}" class="font-medium text-indigo-600  hover:underline">Edit</a>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <form action="{{ route('conference.destroy', $conference->id) }}"
-                                            method="POST" onsubmit="return confirmCancel()">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                            class="font-medium text-red-600  hover:underline">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($conferences as $conference)
+                            <tr class="bg-white border-b hover:bg-gray-50 ">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    {{ $conference->title }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $conference->venue }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $conference->speaker_name }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $conference->speaker_email }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $conference->start_at }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $conference->end_at }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    ${{ $conference->ticket_cost }}
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="{{route('conference.edit', $conference->id)}}"
+                                       class="font-medium text-indigo-600  hover:underline">Edit</a>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <form action="{{ route('conference.destroy', $conference->id) }}"
+                                          method="POST" onsubmit="return confirmCancel()">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                                class="font-medium text-red-600  hover:underline">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
