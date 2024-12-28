@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Attendee extends Model
 {
@@ -22,4 +23,9 @@ class Attendee extends Model
         'is_paid' => 'boolean',
         'conference_id' => 'integer',
     ];
+
+    public function conference(): BelongsTo
+    {
+        return $this->belongsTo(Conference::class);
+    }
 }

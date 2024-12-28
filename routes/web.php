@@ -26,4 +26,5 @@ Route::prefix('/conference')->group(function () {
 Route::prefix('/attendee')->group(function () {
     Route::get('/', [\App\Http\Controllers\AttendeeController::class, 'index'])->name('attendee.index');
     Route::get('/create', [\App\Http\Controllers\AttendeeController::class, 'create'])->name('attendee.create');
+    Route::post('/', [\App\Http\Controllers\AttendeeController::class, 'store'])->name('attendee.store');
 });

@@ -21,25 +21,19 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Conference title
+                                Attendee name
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Venue
+                                Email
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Speaker Name
+                                Phone
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Speaker Email
+                                Conference
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Start At
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                End At
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Ticket Cost
+                                Is Paid
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only"></span>
@@ -47,7 +41,36 @@
                         </tr>
                         </thead>
                         <tbody>
-
+                        @foreach($attendees as $attendee)
+                            <tr class="bg-white border-b hover:bg-gray-50 ">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    {{ $attendee->name }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $attendee->email }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $attendee->phone }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $attendee->conference->title }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if($attendee->is_paid)
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                    @else
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-red-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
