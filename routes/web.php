@@ -21,6 +21,9 @@ Route::prefix('/conference')->group(function () {
    Route::get('/', [ConferenceController::class, 'index'])->name('conference.index');
    Route::get('/conference', [ConferenceController::class, 'create'])->name('conference.create');
    Route::post('/', [ConferenceController::class, 'store'])->name('conference.store');
+   Route::get('/conference/{conference}', [ConferenceController::class, 'edit'])->name('conference.edit');
+   Route::put('/conference/{conference}', [ConferenceController::class, 'update'])->name('conference.update');
+   Route::delete('/conference/{conference}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
 });
 
 Route::prefix('/attendee')->group(function () {
