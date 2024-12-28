@@ -19,5 +19,6 @@ Route::middleware([
 
 Route::prefix('/conference')->group(function () {
    Route::get('/', [ConferenceController::class, 'index'])->name('conference.index');
-   Route::get('/', [ConferenceController::class, 'create'])->name('conference.create');
+   Route::get('/conference', [ConferenceController::class, 'create'])->name('conference.create');
+   Route::post('/', [ConferenceController::class, 'store'])->name('conference.store');
 });
