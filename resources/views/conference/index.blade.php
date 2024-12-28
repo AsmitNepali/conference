@@ -48,7 +48,7 @@
                             <th scope="col" class="px-6 py-3">
                                 Ticket Cost
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" colspan="2" class="px-6 py-3">
                                 <span class="sr-only"></span>
                             </th>
                         </tr>
