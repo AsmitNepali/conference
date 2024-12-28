@@ -17,8 +17,8 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('conference.create') }}" :active="request()->routeIs('conference.create')">
-                        Conference
+                    <x-nav-link href="{{ route('conference.index') }}" :active="request()->routeIs('conference.index')">
+                        Conferences
                     </x-nav-link>
                 </div>
             </div>
