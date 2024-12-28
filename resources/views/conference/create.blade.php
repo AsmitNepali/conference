@@ -17,7 +17,7 @@
                             </div>
                         @endif
                         <h2 class="mb-4 text-xl font-bold text-gray-900 ">Add a new conference</h2>
-                        <form action="{{ route('conference.create') }}" method="POST">
+                        <form action="{{ route('conference.store') }}" method="POST">
                             @csrf
                             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                                 <div class="sm:col-span-2">

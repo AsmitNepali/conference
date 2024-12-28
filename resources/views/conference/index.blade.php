@@ -71,7 +71,18 @@
                                         ${{ $conference->ticket_cost }}
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
+                                        <a href="{{route('conference.edit', $conference->id)}}" class="font-medium text-indigo-600  hover:underline">Edit</a>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <form action="{{ route('conference.destroy', $conference->id) }}"
+                                            method="POST" onsubmit="return confirmCancel()">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                            class="font-medium text-red-600  hover:underline">
+                                                Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

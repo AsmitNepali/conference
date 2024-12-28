@@ -17,10 +17,13 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::prefix('/conference')->group(function () {
+Route::prefix('/conferences')->group(function () {
    Route::get('/', [ConferenceController::class, 'index'])->name('conference.index');
-   Route::get('/conference', [ConferenceController::class, 'create'])->name('conference.create');
+   Route::get('/create', [ConferenceController::class, 'create'])->name('conference.create');
    Route::post('/', [ConferenceController::class, 'store'])->name('conference.store');
+   Route::get('{conference}/edit', [ConferenceController::class, 'edit'])->name('conference.edit');
+   Route::put('{conference}', [ConferenceController::class, 'update'])->name('conference.update');
+   Route::delete('{conference}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
 });
 
 Route::prefix('/attendee')->group(function () {
